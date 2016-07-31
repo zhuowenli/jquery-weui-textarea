@@ -2,6 +2,8 @@
 
 textarea 文本输入框字数提示插件，超出时可限制不再输入。
 
+[https://zhuowenli.github.io/jquery-weui-textarea/](https://zhuowenli.github.io/jquery-weui-textarea/)
+
 ## Usage
 
 ```html
