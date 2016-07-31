@@ -6,6 +6,7 @@ textarea 文本输入框字数提示插件，超出时可限制不再输入。
 
 ## Usage
 
+
 ```html
 <div class="weui_cells weui_cells_form">
     <div class="weui_cell">
@@ -16,6 +17,7 @@ textarea 文本输入框字数提示插件，超出时可限制不再输入。
     </div>
 </div>
 ```
+> PS：计数君需要是跟textarea处在通一层的兄弟元素。
 
 ```js
 $('.weui_textarea').textarea({
