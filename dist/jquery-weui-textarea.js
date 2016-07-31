@@ -25,28 +25,28 @@
         }, options);
 
         var $textarea = this.$textarea = $(e);
-        var $counter = this.$counter = $textarea.parent().find(options.counter);
 
         this.attachEvents();
-        this.counter();
+        this.counter($textarea);
     }
 
     textarea.prototype = {
         constructor: textarea,
-        counter: function(){
-            var value = this.$textarea.val();
+        counter: function($this){
+            var $counter = $this.next();
+            var value = $this.val();
             var length = value.replace(/\*/g, " ").replace(/([^\x00-\xff])/g,'**').length;
             var totalCount = this.options.totalCount;
             var count = Math.round(length / 2);
 
             if (count > totalCount) {
                 value = value.substring(0, value.length - 1);
-                this.$textarea.val(value);
+                $this.val(value);
 
                 return this.counter();
             }
 
-            this.$counter.html('<span>' + count + '</span>/' + totalCount);
+            $counter.html('<span>' + count + '</span>/' + totalCount);
             this.enter({
                 text: value,
                 count: count
@@ -56,7 +56,7 @@
             var that = this;
 
             this.$textarea.on('input', function() {
-                that.counter();
+                that.counter($(this));
             });
         },
         enter: function(res) {
