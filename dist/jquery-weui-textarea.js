@@ -25,7 +25,7 @@
         }, options);
 
         var $textarea = this.$textarea = $(e);
-        var $counter = this.$counter = $(options.counter);
+        var $counter = this.$counter = $textarea.parent().find(options.counter);
 
         this.attachEvents();
         this.counter();
