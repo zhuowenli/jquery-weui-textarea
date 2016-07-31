@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="libs/weui.min.css">
+    <style type="text/css">
+        body, html {
+            height: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .container{
+            height: 100%;
+            background: #fbf9fe;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="weui_cells_title">文本域</div>
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" placeholder="请输入评论" rows="3"></textarea>
+                    <div class="weui_textarea_counter"><span>0</span>/50</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="libs/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="dist/jquery-weui-textarea.js"></script>
+    <script type="text/javascript">
+        $('.weui_textarea').textarea({
+            counter: '.weui_textarea_counter',
+            totalCount: 50,
+            onInput: function(res) {
+                console.log(res); // {text: "aaa", count: 2}
+            }
+        });
+    </script>
+</body>
+</html>
