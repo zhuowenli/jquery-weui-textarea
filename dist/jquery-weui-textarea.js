@@ -33,10 +33,15 @@
     textarea.prototype = {
         constructor: textarea,
         counter: function($this){
+            var totalCount = this.options.totalCount;
             var $counter = $this.next();
             var value = $this.val();
+
+            if (!value || value.length === 0) {
+                return $counter.html('<span>0</span>/' + totalCount);
+            }
+
             var length = value.replace(/\*/g, " ").replace(/([^\x00-\xff])/g,'**').length;
-            var totalCount = this.options.totalCount;
             var count = Math.round(length / 2);
 
             if (count > totalCount) {
