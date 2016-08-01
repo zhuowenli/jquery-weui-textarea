@@ -34,7 +34,7 @@
         constructor: textarea,
         counter: function($this){
             var totalCount = this.options.totalCount;
-            var $counter = $this.next();
+            var $counter = $this.parent().find(this.options.counter);
             var value = $this.val();
 
             if (!value || value.length === 0) {
@@ -48,7 +48,7 @@
                 value = value.substring(0, value.length - 1);
                 $this.val(value);
 
-                return this.counter();
+                return this.counter($this);
             }
 
             $counter.html('<span>' + count + '</span>/' + totalCount);
