@@ -24,7 +24,12 @@ $('.weui_textarea').textarea({
     counter: '.weui_textarea_counter', // 计数选择器
     totalCount: 50,                    // 可输入总数
     onInput: function(res) {           // 输入时触发回调
-        console.log(res);              // {text: "aaa", count: 2}
+        console.log(res);
+        // {
+        //     text: "aaa", // 输入内容
+        //     count: 2,    // 字符数，一个汉字一个字符，两个英文及数字等ascii编码为一个字符
+        //     type: 0      // 0: 正常, 1: 输入字符数超过了限制的字符总数
+        // }
     }
 });
 ```
