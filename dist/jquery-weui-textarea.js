@@ -67,14 +67,14 @@
 
             if (count > totalCount) {
                 count = totalCount;
-                value = this.temp;
+                value = $this.data('temp');
                 $this.val(value);
                 $counter.html('<span>' + totalCount + '</span>/' + totalCount);
             } else {
                 $counter.html('<span>' + count + '</span>/' + totalCount);
             }
 
-            this.temp = value;
+            $this.data('temp', value);
             this.enter({
                 text: value,
                 count: count,
