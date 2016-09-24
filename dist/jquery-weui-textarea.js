@@ -45,17 +45,21 @@
             var count = Math.round(length / 2);
 
             if (count > totalCount) {
-                value = value.substring(0, value.length - 1);
-                $this.val(value);
+                $counter.html('已超出<span style="color: red;">' + (count - totalCount) + '</span>个字');
 
-                return this.counter($this);
+                this.enter({
+                    text: value,
+                    count: count,
+                    type: 1
+                });
+            } else {
+                $counter.html('<span>' + count + '</span>/' + totalCount);
+                this.enter({
+                    text: value,
+                    count: count,
+                    type: 0
+                });
             }
-
-            $counter.html('<span>' + count + '</span>/' + totalCount);
-            this.enter({
-                text: value,
-                count: count
-            });
         },
         attachEvents: function() {
             var that = this;
