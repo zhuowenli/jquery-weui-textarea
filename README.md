@@ -23,6 +23,7 @@ textarea 文本输入框字数提示插件，超出时可限制不再输入。
 $('.weui_textarea').textarea({
     counter: '.weui_textarea_counter', // 计数选择器
     totalCount: 50,                    // 可输入总数
+    enableExceed: false,               // 默认false，允许字符超出，超出则提示。
     onInput: function(res) {           // 输入时触发回调
         console.log(res);
         // {
