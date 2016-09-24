@@ -66,9 +66,10 @@
             }
 
             if (count > totalCount) {
-                $counter.html('<span>' + totalCount + '</span>/' + totalCount);
+                count = totalCount;
                 value = this.temp;
                 $this.val(value);
+                $counter.html('<span>' + totalCount + '</span>/' + totalCount);
             } else {
                 $counter.html('<span>' + count + '</span>/' + totalCount);
             }
