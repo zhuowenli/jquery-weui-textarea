@@ -44,6 +44,7 @@
         $('.weui_textarea').textarea({
             counter: '.weui_textarea_counter',
             totalCount: 10,
+            enableExceed: false,    // 默认false，允许字符超出，超出则提示。
             onInput: function(res) {
                 console.log(res);
                 // {

@@ -44,22 +44,41 @@
             var length = value.replace(/\*/g, " ").replace(/([^\x00-\xff])/g,'**').length;
             var count = Math.round(length / 2);
 
-            if (count > totalCount) {
-                $counter.html('已超出<span style="color: red;">' + (count - totalCount) + '</span>个字');
+            if (this.options.enableExceed) {
+                if (count > totalCount) {
+                    $counter.html('已超出<span style="color: red;">' + (count - totalCount) + '</span>个字');
 
-                this.enter({
-                    text: value,
-                    count: count,
-                    type: 1
-                });
+                    this.enter({
+                        text: value,
+                        count: count,
+                        type: 1
+                    });
+                } else {
+                    $counter.html('<span>' + count + '</span>/' + totalCount);
+                    this.enter({
+                        text: value,
+                        count: count,
+                        type: 0
+                    });
+                }
+
+                return;
+            }
+
+            if (count > totalCount) {
+                $counter.html('<span>' + totalCount + '</span>/' + totalCount);
+                value = this.temp;
+                $this.val(value);
             } else {
                 $counter.html('<span>' + count + '</span>/' + totalCount);
-                this.enter({
-                    text: value,
-                    count: count,
-                    type: 0
-                });
             }
+
+            this.temp = value;
+            this.enter({
+                text: value,
+                count: count,
+                type: 0
+            });
         },
         attachEvents: function() {
             var that = this;
